@@ -1,0 +1,36 @@
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import clsx from "clsx";
+
+import { Card } from "./card/card";
+
+import "./pages.scss";
+
+const NavTag = ({ className, children, rootPath, path }) => {
+  const classes = clsx("nav-tag", className);
+  return (
+    <NavLink activeClassName="selected" to={`${rootPath}/${path}`} className={classes}>
+      <div className="nav-tag__text">{children}</div>
+    </NavLink>
+  );
+};
+
+const Pages = ({ className, rootPath, navigation, children }) => {
+  const classes = clsx("pages", className);
+  return (
+    <div className={classes}>
+      <div className="pages-navigation">
+        {navigation.map((el) => (
+          <NavTag rootPath={rootPath} path={el.path}>
+            {el.title}
+          </NavTag>
+        ))}
+      </div>
+      <div className="pages-content">{children}</div>
+    </div>
+  );
+};
+
+export default Pages;
+
+Pages.Card = Card;

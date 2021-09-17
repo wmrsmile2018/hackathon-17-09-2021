@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Pages from "./components/pages";
+import { AllUsers } from "./layouts/allUsers/";
+import { CurrentUser } from "./layouts/currentUser/currentUser";
+
+const navigation = [
+  { path: "all", title: "По всем" },
+  { path: "current", title: "По одному" },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Pages rootPath="/statistics" navigation={navigation}>
+        <AllUsers rootPath="/statistics" path="all" />
+        <CurrentUser rootPath="/statistics" path="current" />
+      </Pages>
     </div>
   );
 }
