@@ -1,6 +1,6 @@
 import "./App.scss";
 import Pages from "./components/pages";
-import { AllUsers } from "./layouts/allUsers/";
+import { AllUsersController } from "./layouts/allUsers/";
 import { CurrentUser } from "./layouts/currentUser/currentUser";
 
 const navigation = [
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Pages rootPath="/statistics" navigation={navigation}>
-        <AllUsers rootPath="/statistics" path="all" />
+        <AllUsersController rootPath="/statistics" path="all" />
         <CurrentUser rootPath="/statistics" path="current" />
       </Pages>
     </div>

@@ -11,30 +11,7 @@ import { Button } from "../../components/button";
 
 const { Card } = Pages;
 
-const mock = [
-  {
-    "category": "напитки",
-    "amount": 3000,
-  },
-  {
-    "category": "напитки2",
-    "amount": 3000,
-  },
-  {
-    "category": "еда",
-    "amount": 2000,
-  },
-  {
-    "category": "услуги",
-    "amount": 2000,
-  },
-  {
-    "category": "топливо",
-    "amount": 1000,
-  },
-];
-
-export const AllUsers = ({ className, rootPath, path, onUpdate }) => {
+export const AllUsers = ({ className, rootPath, path, onUpdate, users }) => {
   const classes = clsx("all-users", className);
   return (
     <Card className={classes} rootPath={rootPath} path={path}>
@@ -44,7 +21,7 @@ export const AllUsers = ({ className, rootPath, path, onUpdate }) => {
           Обновить данные
         </Button>
         <div className="all-users-list">
-          {mock.map((el) => (
+          {users.map((el) => (
             <InfoBlock key={key(el)} title={el.category}>
               {el.amount}
             </InfoBlock>

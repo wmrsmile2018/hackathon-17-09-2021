@@ -3,10 +3,10 @@ import { createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 ////// for testing using json server
-const envBaseUrl =
-  process.env.NODE_ENV === "development"
-    ? process.env.REACT_APP_LOCALHOST
-    : process.env.REACT_APP_BASE_URL;
+const envBaseUrl = process.env.REACT_APP_BASE_URL;
+// process.env.NODE_ENV === "development"
+//   ? process.env.REACT_APP_LOCALHOST
+//   : process.env.REACT_APP_BASE_URL;
 
 export const sagaEventCallBegan = createAction("saga/eventCallBegan");
 export const sagaEventCallSuccess = createAction("saga/eventCallSuccess");
