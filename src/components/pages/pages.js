@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import key from "weak-key";
 
 import { Card } from "./card/card";
 
@@ -21,7 +22,7 @@ const Pages = ({ className, rootPath, navigation, children }) => {
     <div className={classes}>
       <div className="pages-navigation">
         {navigation.map((el) => (
-          <NavTag rootPath={rootPath} path={el.path}>
+          <NavTag key={key(el)} rootPath={rootPath} path={el.path}>
             {el.title}
           </NavTag>
         ))}

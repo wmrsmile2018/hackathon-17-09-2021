@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // import { sagaEventCallBegan, sagaEventCallFail, sagaEventCallSuccess } from "../saga";
 
 const initialState = {
-  user: {},
+  user: [],
 };
 
 const userSlice = createSlice({
@@ -10,10 +10,10 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     getUser(state, action) {
-      state.user = action.payload.success;
+      state.user = action.payload;
     },
 
-    fetchError(state, action) {
+    fetchUserError(state, action) {
       state.error = action.payload;
     },
   },
@@ -29,4 +29,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { getUser, fetchError } = userSlice.actions;
+export const { getUser, fetchUserError } = userSlice.actions;

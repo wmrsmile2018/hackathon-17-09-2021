@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sagaEventCallBegan } from "../../model/saga";
-import { fetchError, getUsers } from "../../model/users/reducer";
+import { fetchUsersError, getUsers } from "../../model/users/reducer";
 import { AllUsers } from "./allUsers";
 
 export const AllUsersController = ({ ...props }) => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users.users);
 
   const handleOnUpdate = useCallback(() => {
     dispatch({
@@ -14,7 +14,7 @@ export const AllUsersController = ({ ...props }) => {
       type: sagaEventCallBegan.type,
       method: "get",
       onSuccess: getUsers.type,
-      onError: fetchError.type,
+      onError: fetchUsersError.type,
     });
   }, [dispatch]);
 
@@ -24,7 +24,7 @@ export const AllUsersController = ({ ...props }) => {
       type: sagaEventCallBegan.type,
       method: "get",
       onSuccess: getUsers.type,
-      onError: fetchError.type,
+      onError: fetchUsersError.type,
     });
   }, [dispatch]);
 

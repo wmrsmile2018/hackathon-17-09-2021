@@ -12,30 +12,7 @@ import "./currentUser.scss";
 
 const { Card } = Pages;
 
-const mock = [
-  {
-    "category": "напитки",
-    "amount": 3000,
-  },
-  {
-    "category": "напитки2",
-    "amount": 3000,
-  },
-  {
-    "category": "еда",
-    "amount": 2000,
-  },
-  {
-    "category": "услуги",
-    "amount": 2000,
-  },
-  {
-    "category": "топливо",
-    "amount": 1000,
-  },
-];
-
-export const CurrentUser = ({ className, rootPath, path, onSubmit }) => {
+export const CurrentUser = ({ className, rootPath, path, onSubmit, user, onChange, id }) => {
   const classes = clsx("current-user", className);
 
   return (
@@ -43,13 +20,13 @@ export const CurrentUser = ({ className, rootPath, path, onSubmit }) => {
       <Title>Данные по одному пользователю</Title>
       <div className="current-user-content">
         <div className="current-user-form">
-          <Input title="please input id of user" />
+          <Input title="please input id of user" value={id} onChange={onChange} />
           <Button className="current-user-update" onClick={onSubmit}>
             Получить данные
           </Button>
         </div>
         <div className="current-user-list">
-          {mock.map((el) => (
+          {user.map((el) => (
             <InfoBlock key={key(el)} title={el.category}>
               {el.amount}
             </InfoBlock>

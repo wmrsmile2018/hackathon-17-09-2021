@@ -1,8 +1,7 @@
 import "./App.scss";
 import Pages from "./components/pages";
 import { AllUsersController } from "./layouts/allUsers/";
-import { CurrentUser } from "./layouts/currentUser/currentUser";
-
+import { CurrentUserController } from "./layouts/currentUser/currentUserController";
 const navigation = [
   { path: "all", title: "По всем" },
   { path: "current", title: "По одному" },
@@ -13,7 +12,7 @@ function App() {
     <div className="App">
       <Pages rootPath="/statistics" navigation={navigation}>
         <AllUsersController rootPath="/statistics" path="all" />
-        <CurrentUser rootPath="/statistics" path="current" />
+        <CurrentUserController rootPath="/statistics" path="current" />
       </Pages>
     </div>
   );

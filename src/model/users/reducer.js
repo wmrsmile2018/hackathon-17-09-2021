@@ -10,10 +10,10 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     getUsers(state, action) {
-      state.users = action.payload.success;
+      state.users = action.payload;
     },
 
-    fetchError(state, action) {
+    fetchUsersError(state, action) {
       state.error = action.payload;
     },
   },
@@ -29,4 +29,4 @@ const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 
-export const { getUsers, fetchError } = usersSlice.actions;
+export const { getUsers, fetchUsersError } = usersSlice.actions;
